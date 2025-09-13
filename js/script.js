@@ -1,12 +1,23 @@
 import { ball, paddle, bricks } from "./objects.js";
 import { gameLoop } from "./motion.js";
+import { drawLives } from "./state.js";
 
 const canvas = document.getElementById("myCanvas");
 const ctx = canvas.getContext("2d");
 
 // Use actual viewport size
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
+canvas.width = window.innerWidth*0.60;
+canvas.height = window.innerHeight*0.65;
+
+// adjust the canvas size on window resize
+window.addEventListener("resize", () => {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+
+  // Reposition paddle at bottom center
+  paddle.y = canvas.height - 30;
+});
+
 
 // --- Draw Ball ---
 export function drawBall(ctx, ball) {
@@ -40,6 +51,8 @@ export function drawCanvas(ctx, canvas) {
   drawBall(ctx, ball);
   drawPaddle(ctx, paddle);
   drawBricks(ctx, bricks);
+  // game state lives 
+  drawLives(ctx, canvas);
 }
 
 // --- Start game loop ---

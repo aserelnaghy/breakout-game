@@ -1,5 +1,6 @@
 import { ball, paddle, bricks } from "./objects.js";
 import { keys } from "./input.js";
+import { decrementLives } from "./state.js";
 
 // Move ball with wall and paddle bounce  
 export function moveBall(canvas) {
@@ -34,6 +35,7 @@ export function moveBall(canvas) {
 
   // Reset if falls below canvas
   if (ball.y - ball.radius > canvas.height) {
+    decrementLives();
     ball.onPaddle = true;
     ball.dx = 3;
     ball.dy = -3;

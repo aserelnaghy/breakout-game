@@ -21,7 +21,7 @@ export const paddle = {
 //  brickslayout, hena mafrod 3la hasb l levels bs da bs demo 8ayro brahtko
 export const bricks = [];
 const rows = 5;
-const cols = 8;
+const cols = 11;
 const brickWidth = 80;
 const brickHeight = 20;
 const padding = 10;
