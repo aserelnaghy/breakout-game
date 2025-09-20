@@ -70,7 +70,7 @@ paddle.x = canvas.width * 0.5 - paddle.width / 2;
 paddle.y = canvas.height - paddle.height - 10;
 
 // Populate the shared bricks array
-createBricks(ctx);
+// createBricks(ctx);
 
 // --- Draw Ball ---
 export function drawBall(ctx, ball) {
